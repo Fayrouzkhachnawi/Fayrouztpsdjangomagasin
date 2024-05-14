@@ -1,0 +1,13 @@
+{% extends 'magasin/base.html' %}
+{% block title %} Modifier Commande {% endblock title %}
+
+{% block body %}
+<div class="container">
+    <h2>Modifier Commande</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enregistrer les modifications</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'magasin/base.html' %}
+
+{% block title %} Catalogue de produits {% endblock title %}
+
+{% block body %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-lg-9 mx-auto">
+            <div class="row">
+                {% for command in commands %}
+                <div class="col-md-4 mb-4">
+                    <div class="card border-primary h-100">
+                        <div class="card-header bg-dark text-white">
+                            Commande #{{ command.id }}
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Date: {{ command.dateCde }}</p>
+                            <p class="card-text">Total: <b>{{ command.totalCde }}</b></p>
+                            <ul class="list-group list-group-flush">
+                                {% for produit in command.produits.all %}
+                                <li class="list-group-item">{{ produit.libelle }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <form method="post" action="{% url 'delete_commande' commande_id=command.id %}">
+                            {% csrf_token %}
+                            <button type="submit">Supprimer cette commande</button>
+                        </form>
+                        <a href="{% url 'update_commande' commande_id=command.id %}" class="btn btn-primary">Modifier</a>
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-lg-9 mx-auto mt-3">
+        <a href="{% url 'nouveauCommande' %}" class="btn btn-success">
+            Ajout Commande
+        </a>
+    </div>
+</div>
+{% endblock %}
+

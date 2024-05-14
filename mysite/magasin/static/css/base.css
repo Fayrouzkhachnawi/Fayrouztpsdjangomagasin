@@ -1,0 +1,109 @@
+.delete-btn {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.delete-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+.delete-btn:hover {
+    filter: brightness(80%);
+}
+
+.update-btn {
+    background-color: rgb(158, 90, 158);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.update-btn.clicked {
+    background-color: green;
+}
+body {
+    background-color: #f8f9fa; /* Utilisation d'une teinte plus claire pour le fond */
+}
+
+/* Style pour la table des produits */
+.table {
+    background-color: #FFFFFF; /* Fond blanc pour la table */
+    border-radius: 8px; /* Coins arrondis pour un aspect plus esthétique */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour un effet de profondeur */
+  
+}
+
+/* Style pour les en-têtes de colonnes */
+.table th {
+    background-color: #f8f9fa; /* Fond légèrement plus clair pour les en-têtes */
+    border-bottom: 10px solid #b16666; /* Bordure inférieure pour séparer les lignes */
+    font-weight: bold; /* Texte en gras pour plus de visibilité */
+}
+
+/* Style pour les lignes de la table */
+.table td {
+    vertical-align: middle; /* Centrer le contenu vertical */
+}
+.title {
+    height: 60px; /* Hauteur de l'en-tête */
+    border-bottom: 1px solid #e1e8ee; /* Bordure inférieure pour séparer l'en-tête du contenu */
+    padding: 20px 30px; /* Espacement intérieur pour un aspect aéré */
+    color: #5e6977; /* Couleur du texte */
+    font-size: 18px; /* Taille de police */
+    font-weight: 400; /* Poids de la police */
+  }
+  
+
+  body {
+    margin-top: 20px;
+    background: #ddd;
+}
+
+
+
+
+
+
+
+
+
+
+
+.quantity [class*='fa-']:hover {
+    color: #455a64;
+}
+.text-pink {
+    color: rgb(211, 24, 118); /* ou toute autre valeur de couleur rose que vous préférez */
+}
+
+.btn-transparent:hover .bi-trash {
+    color: rgb(241, 179, 7); /* Couleur de survol */
+}
+.btn-transparent:hover .bi-pencil {
+    color: rgb(207, 16, 48); /* Couleur de survol */
+}
+.card {
+    max-width: 250px; /* Définissez une largeur maximale pour la carte */
+    margin: 0 auto; /* Centrez la carte horizontalement */
+    margin-bottom: 20px; /* Ajoutez un espace entre les cartes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoutez une ombre à la carte */
+    transition: box-shadow 0.3s; /* Ajoutez une transition d'ombre */
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Augmentez l'ombre au survol */
+}
+.card-img-top {
+    height: 200px; /* Ajustez la hauteur de l'image selon vos besoins */
+}
+.card.enlarged {
+    height: 300px; /* Hauteur agrandie */
+}
+
+.card.enlarged .card-img-top {
+    height: 250px; /* Hauteur agrandie de l'image */
+}

@@ -1,0 +1,74 @@
+{% extends 'magasin/base.html' %}
+{% block styles %}
+    <!-- Styles spécifiques à ce fichier enfant -->
+    <style>
+        /* Ajuster la taille des cartes agrandies */
+    
+    </style>
+{% endblock %}
+
+{%  load static %}
+<html>
+{% block title %}Ctalogue des produits{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    
+
+   
+</head>
+<body>
+
+
+    {% block body %}
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-1 gx-lg-4 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                {% for product in products %}
+                <div class="col mb-2">
+                    <div class="card h-100 clickable-card">
+                        <img class="card-img-top" src="{{ product.Img.url }}" alt="Card image cap" >
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <h5 class="fw-bolder">{{ product.libelle }}</h5>
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <p>${{ product.prix }}</p>
+                                </div>
+                            </div>
+                            <div class="btn-group" role="group" aria-label="Actions">
+                                <form action="{% url 'add_to_cart' product.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-transparent font-weight-bold"><i class="bi bi-bag-heart text-pink"></i></button>
+                                </form>
+                                <form method="post" action="{% url 'delete_produit' produit_id=product.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-transparent font-weight-bold"><i class="bi bi-trash"></i></button>
+                                </form>
+                                <a href="{% url 'update_produit' produit_id=product.id %}" class="btn btn-transparent font-weight-bold"><i class="bi bi-pencil"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <!-- Ajoutez ici les éléments de pied de carte si nécessaire -->
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="text-center mt-3">
+                <a href="{% url 'indajout' %}" class="btn btn-primary">Ajouter Produit</a>
+            </div>
+        </div>
+    </section>
+    <footer class="py-5 log bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your website 2024</p>
+        </div>
+    </footer>
+{% endblock %}
+
+
+</body>
+</html>

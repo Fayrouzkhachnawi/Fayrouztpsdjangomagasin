@@ -1,0 +1,80 @@
+{% extends 'magasin/base.html' %}
+
+{% block styles %}
+    <!-- Styles spécifiques à ce fichier enfant -->
+   
+{% endblock %}
+
+{%  load static %}
+<html>
+{% block title %}Panier{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    
+</head>
+<body>
+{% block body %}
+<div class="container">
+    <h1 class="title">Votre panier</h1>
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Produit</th>
+                        <th>Prix unitaire</th>
+                        
+                        <th>Quantité</th>
+                        <th>Action</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cart_items %}
+                    <tr>
+                        <td>{{ item.produit.libelle }}</td>
+                        <td>{{ item.produit.prix|floatformat:2 }}</td>
+                        <td>
+                          
+                                <form action="{% url 'update_quantity' item.pk %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="number" name="quantity" value="{{ item.quantite }}" min="1">
+                                    <button type="submit" class="update-btn" id="updateButton" >Update</button>
+                                </form>
+                           
+                        </td>
+                       
+                      <td>
+
+                        <form class="delete-form" action="{% url 'delete_cart_item' item.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="delete-btn">
+
+                                <img src="{% static 'images/deleteicon.png' %}" alt="Delete" style="width: 24px; height: 24px;">
+                            </button>
+                        </form>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <h2>Total du panier: {{ total }}</h2>
+            <a href="{% url 'checkout' %}" class="btn btn-primary">Checkout</a>
+        </div>
+    </div>
+</div>
+
+
+       
+
+   
+
+       
+{% endblock %}
+<script src="{% static 'magasin/js/cart.js' %}"></script> 
+</body>
+</html>

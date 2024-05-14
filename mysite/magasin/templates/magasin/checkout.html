@@ -1,0 +1,28 @@
+<!-- magasin/templates/magasin/checkout.html -->
+{% load static %}
+<html>
+    <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Paiement</title>
+    <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+</head>
+<body>
+<form id="payment-form">
+    {% csrf_token %}
+    <!-- Display payment errors -->
+    <div id="payment-errors" role="alert"></div>
+    <!-- Stripe Elements container -->
+    <div id="card-element"></div>
+    <!-- Submit button -->
+    <button id="submit-button">Submit Payment</button>
+</form>
+
+<!-- Include Stripe.js library -->
+<script src="https://js.stripe.com/v3/"></script>
+<!-- Include your custom JavaScript file for client-side interactions (if needed) -->
+<script src="{% static 'magasin/js/checkout.js' %}"></script>
+</body>
+</html>
+     

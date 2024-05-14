@@ -1,0 +1,13 @@
+{% extends 'magasin/base.html' %}
+{% block title %} Modifier Fournisseur {% endblock title %}
+
+{% block body %}
+<div class="container">
+    <h2>Modifier Fournisseur</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enregistrer les modifications</button>
+    </form>
+</div>
+{% endblock %}

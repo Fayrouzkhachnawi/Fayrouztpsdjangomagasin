@@ -1,0 +1,10 @@
+
+  /* Style pour l'en-tête "Votre panier" */
+.title {
+  height: 60px; /* Hauteur de l'en-tête */
+  border-bottom: 1px solid #e1e8ee; /* Bordure inférieure pour séparer l'en-tête du contenu */
+  padding: 20px 30px; /* Espacement intérieur pour un aspect aéré */
+  color: #5e6977; /* Couleur du texte */
+  font-size: 18px; /* Taille de police */
+  font-weight: 400; /* Poids de la police */
+}

@@ -1,0 +1,25 @@
+{% extends 'magasin/base.html' %}
+{% load static %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenue Chart</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <!-- Render the Plotly line chart -->
+    <div id="plot_div_line" style="width: 800px; height: 600px;">
+        {{ plot_div_line|safe }}
+    </div>
+
+    <!-- Render the Plotly bar chart -->
+    <div id="plot_div_bar" style="width: 800px; height: 600px;">
+        {{ plot_div_bar|safe }}
+    </div>
+</body>
+</html>
+{% endblock %}
